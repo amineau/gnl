@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 10:54:48 by amineau           #+#    #+#             */
-/*   Updated: 2016/01/06 11:13:57 by amineau          ###   ########.fr       */
+/*   Updated: 2016/01/06 11:38:49 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int			get_next_line(const int fd, char **line)
 	back = 2;
 	if (ft_check_rest(&rest, line) == 1)
 		return (1);
-	buf = ft_memalloc(sizeof(char) * (BUFF_SIZE + 1));
 	while (back == 2)
 	{
+		buf = ft_memalloc(sizeof(char) * (BUFF_SIZE + 1));
 		if ((ret = read(fd, buf, BUFF_SIZE)) == -1)
 			return (-1);
 		buf[ret] = '\0';
