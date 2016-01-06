@@ -6,13 +6,13 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 10:54:48 by amineau           #+#    #+#             */
-/*   Updated: 2016/01/04 21:10:53 by amineau          ###   ########.fr       */
+/*   Updated: 2016/01/06 10:48:47 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_endline(char *buf)
+static int	ft_endline(char *buf)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		ft_endline(char *buf)
 	return (2);
 }
 
-int		ft_check_rest(char **rest, char **line)
+static int	ft_check_rest(char **rest, char **line)
 {
 	char *p;
 
@@ -47,7 +47,7 @@ int		ft_check_rest(char **rest, char **line)
 	return (0);
 }
 
-char	*ft_trac(char *rest, char **buf)
+static char	*ft_trac(char *rest, char **buf)
 {
 	int	i;
 	int	j;
@@ -71,7 +71,7 @@ char	*ft_trac(char *rest, char **buf)
 	return (NULL);
 }
 
-int		get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	char		*buf;
 	static char	*rest;
@@ -96,6 +96,5 @@ int		get_next_line(const int fd, char **line)
 		rest = ft_trac(rest, &buf);
 		*line = ft_strclnjoin(*line, buf);
 	}
-	ft_strdel(&buf);
 	return (back);
 }
